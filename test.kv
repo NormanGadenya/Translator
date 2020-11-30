@@ -1,0 +1,110 @@
+#This is a BoxLayout and it has veritcal orientation
+<ContainerBox>:
+    
+    orientation: 'vertical'
+    padding:5
+    
+    #Label and BoxLayout are indented the same amount so take up one box each
+  
+    canvas.before:
+        Rectangle:
+            source:'back.jpg'
+            size: root.width,root.height
+            pos: self.pos
+    BoxLayout:
+        orientation:'vertical'
+        Label:
+            text: 'Welcome'
+            color: [0.41, 0.42, 0.74, 1]
+            font_size:40
+            font_name:'FeelingPassionate'
+        
+            
+            
+    
+    BoxLayout:
+        
+        orientation:'vertical'
+        Label:
+            text: 'Translate From'
+            font_size:20
+            font_name:'MilkyNiceOne'
+        BoxLayout:
+            spacing:10
+            pos_hint:{'x':0.08,'y':0.5}
+        #Since the buttons are both indented within BoxLayout they both belong
+        
+        #to it and split BoxLayout into two boxes (Horizontal by default)
+            
+            MDRectangleFlatButton:
+                text: 'English'
+                text_color:[176/255,204/255,255/255,1]
+                font_size: 15
+                font_name:'WalkwayUB'
+                on_press:app.eng1()
+            MDRectangleFlatButton:
+                text: 'German'
+                text_color:1,1,1,1
+                font_size: 15
+                font_name:'WalkwayUB'
+                on_press:app.ger1()
+            MDRectangleFlatButton:
+                text: 'French'
+                text_color:[101/255,255/255,120/255,1]
+                font_size: 15
+                font_name:'WalkwayUB'
+                on_press:app.fre1()
+        
+        Label:
+            text: 'Translate To'
+            font_size:20
+            font_name:'MilkyNiceOne'
+        
+        BoxLayout:
+            spacing:10
+            pos_hint:{'x':0.08,'y':0.5}
+            MDRectangleFlatButton:
+                text: 'English'
+                text_color:[176/255,204/255,255/255,1]
+                font_size: 15
+                font_name:'WalkwayUB'
+                on_press:app.eng()
+            MDRectangleFlatButton:
+                text: 'German'
+                text_color:1,1,1,1
+                font_size: 15
+                font_name:'WalkwayUB'
+                on_press:app.ger()
+            MDRectangleFlatButton:
+                text: 'French'
+                text_color:[101/255,255/255,120/255,1]
+                font_size: 15
+                font_name:'WalkwayUB'
+                on_press:app.fre()
+            
+    BoxLayout:
+        orientation:'vertical'
+        padding:20
+        
+            
+        MDRectangleFlatButton:
+            text: 'Translate'
+            padding: 10
+            size_hint_x:0.4
+            size_hint_y:0.4
+            on_press:app.start_t()
+            font_size:15
+            font_name:'FeelingPassionate'
+            pos_hint:{'x':.25,'y':0.5}
+        
+        Image:
+            id: ande
+            source: ''
+            opacity: 0
+            anim_delay: 0.01
+            mipmap: True
+            allow_stretch: True
+    MDFloatingActionButton:
+        icon:'help'
+        on_press:app.show_data()
+        pos_hint:{'x':.82}
